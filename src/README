@@ -1,0 +1,65 @@
+niso,inbarbahnof
+207447970,207009721
+
+1)	In order to implement the bricks we chose strategy number 2,
+    Advantages of this approach are :
+    a) First of all we maximize our encapsulation in our code;
+    The game management and functionality is found in single cloud.
+    This way, our code is organized and easier to maintain and update with minial need of changes.
+
+    b) Easy to access, we have simple getter,setters and functions to remove and add game objects.
+        Instead of using an array and directly accessing game objects and sharing them between game
+        components each game components is capable of adding and removing itself.
+
+    c) Information Hiding, our approach is that only the GameManager has access to all of the game
+    attributes, this way we do not share them but centralize the data inside the manager.
+
+    Disadvantages of this approach are :
+    a) Complicating the API, by adding many functions to the game manager we lengthen the gameManager class,
+        make it less readable and harder to change.
+
+    b) Decreased Encapsulation, by importing the gameManger we have a problem that now all the public class
+        have shared access.In example if some reason we need to make a public function for specific game
+        component now this function is shared between all game components.
+
+2)	We decided that  adding and removing a life is a critical part of the game.
+    So it is implemented inside the game manager, the functionality is divided into a number
+    of functions as follows:
+•	LifeCounter – a class parameter to count the amount of lives the user currently has (Logic).
+•	MakeHeartLife – This function is responsible to generate graphical representation of the player
+    remaining lives, displayed on the UI according to the logical parameter.
+•	MakeLifeCount – This function represents  the numerical life representation near the graphical
+    represntation also in the UI.
+•	UpdateLifeGraphic –   updates the coloring according to lifes count.
+•	Increment, Decrement functions which handle the logic behind incrementing and
+    decrementing of a life.(UI and logic)
+This way we seperated the logic i.e increment, decrement , updateLifeGraphic and the UI which is in charge
+of the representation (even though Update is a bit of both).
+
+3)	In order to implement all the behaviors requested in the task, we created a
+class that overrides the onCollision method.
+ Each class has its own strategy and specific implementation. Likewise, we created a 'factory' of
+strategies that returns a strategy.
+Also, there is an interface for the equivalent strategy so we can add it to the brick class.
+ - AnotherPaddleStrategy this strategy creates a second paddle , there is a class of secondPaddle that
+    extends paddle and overrides OnCollisionEnter method to desttroy the paddle according to amount of
+    ballColisionNumber field.
+ - CameraStrategy sets the camera as instructed to follow the ball the Update in BrickGameManager
+    handles ending this affect becuase it has to receive the ball status.
+ - IncrementLifeStrategy makes a new object of type Heart which falls down.
+ - PuckCollisionStrategy makes two objects type of Puck that extends ball.
+  Also we have doubleStrategy and Factory which we will explain about in the next question.
+4)	To implement the double strategy  we did so in the factory, the factory has a variable
+  called MAX_STRATEGIES which by changing it (currently set to 3) we change the amount of 
+strategies a brick can acquire.
+In order to simplify the logic in each function we split the task to a few functions:
+ the first one creates an integer array of numbers between 0-4 in maximal size of MAX_STRATEGIES ,
+  if the number equivalent to the double_strategy index,
+   we roll two numbers instead of the rolled one.
+This list of integers is switched to the relevant strategy (Instead of indexes we switch to strategy list)
+There is a function for that called DoubleStrategyHandler.
+The constraint for max strategies is very simple , by changing the variable there can be more\less
+stacking of strategies per brick.
+5)	We added getters and setters with which we could extend the functionality of our game.
+
+
