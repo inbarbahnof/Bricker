@@ -1,5 +1,8 @@
 "# Bricker" 
 
+<img width="104" alt="paddle" src="https://github.com/inbarbahnof/Bricker/assets/158153825/73f11c2f-cca0-4d5e-99c1-2190cfbfc542">
+
+
 Introducing an Arkanoid-inspired game developed using DanoGameLab, where bricks exhibit dynamic behaviors to enhance gameplay:
 
 Brick Behaviors:
