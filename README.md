@@ -22,8 +22,10 @@ To implement the various behaviors, I devised a class structure where each behav
 Here's a breakdown of the implementation:
 
 Behavior Classes: Each behavior, such as splitting, secondary paddle creation, camera distortion, etc., is represented by a separate class that inherits from a common interface.
+
 Factory Pattern: A factory class is responsible for creating strategies based on requested probabilities. For instance, there's a higher probability for regular strategies and a lower probability for special ones.
+
 Interface: An interface defines the contract that each behavior class must adhere to, ensuring consistency across all implementations.
 By organizing the behaviors into distinct classes and leveraging the factory pattern, the implementation becomes modular, extensible, and easy to maintain. This approach allows for seamless integration of new behaviors and fine-tuning of their probabilities to achieve the desired gameplay experience.
-Double Strategy Implementation:
-To facilitate the implementation of the double strategy, it's managed within the factory. A variable named MAX_STRATEGIES dictates the maximum number of strategies a brick can acquire. By adjusting this variable (currently set to 3), you can control the variety of strategies assigned to each brick.
+
+Double Strategy Implementation: To facilitate the implementation of the double strategy, it's managed within the factory. A variable named MAX_STRATEGIES dictates the maximum number of strategies a brick can acquire. By adjusting this variable (currently set to 3), you can control the variety of strategies assigned to each brick.
