@@ -5,7 +5,7 @@
 
 Introducing an Arkanoid-inspired game developed using DanoGameLab, where bricks exhibit dynamic behaviors to enhance gameplay:
 
-Brick Behaviors:
+### Brick Behaviors: ###
 
 Splitting Brick: Breaks into two smaller balls upon impact.
 Secondary Paddle Brick: Creates a secondary paddle that mimics the original, disappearing after 4 ball collisions.
@@ -13,10 +13,10 @@ Camera Distortion Brick: Alters the main camera to follow the ball, reverting af
 Extra Life Brick: Drops an additional life for the player to collect.
 Double Behavior Brick: Randomly assigns multiple behaviors to a single brick.
 
-Control Scheme:
+### Control Scheme: ###
 Use the left and right arrow keys to move the paddle horizontally.
 
-Behavior implemantation:
+### Behavior implemantation: ###
 To implement the various behaviors, I devised a class structure where each behavior is encapsulated within its own class, overriding the onCollision method with specific implementations tailored to each behavior's requirements. Additionally, I established a strategy factory responsible for generating strategies based on requested probabilities.
 
 Here's a breakdown of the implementation:
